@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBIN - Tentoonstellingen</title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/homepagestyle.css">
+    <link rel="icon" type="image/x-icon" href="IMAGE/KinaLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="myHeader" class="sticky">
+        <div class="logo">
+            <figure>
+                <img src="IMAGE/logo.png" alt="Logo">
+            </figure>
+        </div>
+        <nav class="nav-container">
+            <div class="top-nav">
+                <ul>
+                    <li><a href="homepage.html" class="strike"><p>Home</p></a></li>
+                    <li><a href="Over_het_museum.html" class="strike"><p>Over Ons</p></a></li>
+                    <li><a href="contact.html" class="strike"><p>Contact</p></a></li>
+                    <li><a href="tentoonstellingen.html" class="strike"><p>Tentoonstellingen</p></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="new-section">
+        <img src="IMAGE/inleidingtentoonstelling.webp" alt="Inleiding Afbeelding" class="achtergrond-img">
+        <div class="overlay2">
+            <h1>Verborgen Werelden: Een Reis door de Natuurhistorie</h1>
+            <p>Een tijdreis door de natuur, van de dinosauriërs tot nu.</p>
+        </div>
+    </section>
+
+    <section class="tentoonstellingen2">
+        <div class="element fade-in" style="opacity: 0;">
+            <h1>Tentoonstellingen</h1>
+            <div class="grid-container2">
+                <div class="grid-item2">
+                    <a href="tentoonstelling1.html">
+                        <img src="IMAGE/Evenement1.webp" alt="Evenement 1" class="event-img">
+                    </a>
+                    <p class="event-text">Echo's uit het Krijttijdperk</p>
+                </div>
+                <div class="grid-item2">
+                    <a href="tentoonstelling2.html">
+                        <img src="IMAGE/Evenement2.webp" alt="Evenement 2" class="event-img">
+                    </a>
+                    <p class="event-text">Geheimen van de Oceaan</p>
+                </div>
+                <div class="grid-item2">
+                    <a href="tentoonstelling3.html">
+                        <img src="IMAGE/Evenement3.webp" alt="Evenement 3" class="event-img">
+                    </a>
+                    <p class="event-text">De IJstijd: Overlevenden van het Kwartair</p>
+                </div>
+                <div class="grid-item2">
+                    <a href="tentoonstelling4.html">
+                        <img src="IMAGE/Evenement4.webp" alt="Evenement 4" class="event-img">
+                    </a>
+                    <p class="event-text">Vogels: De Moderne Dinosaurussen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contacteer Ons</h3>
+                <p>Koninklijk Belgisch Instituut<br>Brussel, België<br><br>Email: info@kbin.be<br>Tel: +32 2 123 45 67</p>
+            </div>
+            <div class="footer-column">
+                <h3>Ontdek Meer</h3>
+                <ul>
+                    <li><a href="tentoonstelling1.html"><p>Echo's uit de Krijttijdperk</p></a></li>
+                    <li><a href="tentoonstelling2.html"><p>Geheimen van de Oceaan</p></a></li>
+                    <li><a href="tentoonstelling3.html"><p>De Ijstijd</p></a></li>
+                    <li><a href="tentoonstelling4.html"><p>Moderne Dinosaurussen</p></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Volg Ons</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="IMAGE/Facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="IMAGE/Instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="IMAGE/Twitter-icon.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let lastScrollTop = 0;
+            const header = document.getElementById("myHeader");    
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+    
+            window.addEventListener("scroll", function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+                // Header animatie
+                if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                    header.style.top = "-" + header.offsetHeight + "px";
+                } else {
+                    header.style.top = "0";
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+        const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Remove the fade-in class to reset the animation
+      entry.target.classList.remove('fade-in');
+
+      // Wait for the next frame to add the fade-in class back
+      requestAnimationFrame(() => {
+        entry.target.classList.add('fade-in');
+      });
+    }
+  });
+});
+
+const elements = document.querySelectorAll('.element');
+elements.forEach(element => observer.observe(element));
+
+    </script>
+        
+</body>
+</html>
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBIN - De Ijstijd    </title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/homepagestyle.css">
+    <link rel="icon" type="image/x-icon" href="IMAGE/KinaLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="myHeader" class="sticky">
+        <div class="logo">
+            <figure>
+                <img src="IMAGE/logo.png" alt="Logo">
+            </figure>
+        </div>
+        <nav class="nav-container">
+            <div class="top-nav">
+                <ul>
+                    <li><a href="Over_het_museum.html" class="strike"><p>Over Ons</p></a></li>
+                    <li><a href="contact.html" class="strike"><p>Contact</p></a></li>
+                    <li><a href="tentoonstellingen.html" class="strike"><p>Tentoonstellingen</p></a></li>
+                    <li><a href="homepage.html"><p>Home</p></a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<section class="new-section2">
+    <img src="IMAGE/tentoonstelling3inleiding.webp" alt="Inleiding Afbeelding" class="achtergrond-img">
+    <div class="overlay3">
+        <h1>De Ijstijd</h1>
+        <p>Overlevenden van het Kwartair</p>
+    </div>
+</section>
+
+<section class="inhoud">
+    <div class="column first-column">
+        <h1>Info:</h1>
+        <p class="short-text">Beleef de wonderen van de ijstijd, een periode die de aarde transformeerde en de koers van het leven op onze planeet drastisch wijzigde. Onze nieuwste tentoonstelling in het museum neemt u mee op een reis door de tijd, naar een wereld waar mammoeten de bevroren vlaktes domineerden en de eerste mensen hun stempel op de wereld begonnen te drukken.</p>
+        <button class="read-more-btn">Lees meer</button>
+        <p class="more-text">Ontdek hoe gletsjers continenten vormgaven, hoe dieren en planten zich aanpasten aan de extreme kou, en hoe deze tijdperken van ijs de fundamenten legden voor de moderne wereld zoals wij die nu kennen. Wij nodigen u uit om deze fascinerende periode van dichtbij te ervaren.</p>
+    </div>
+    <div class="column second-column">
+        <p class="short-text">Wandel door levensechte reconstructies van ijzige landschappen, sta oog in oog met de gigantische wezens die ooit de aarde bewandelden, en duik in de wetenschap achter de ijstijden. Ontdek de geheimen die verborgen liggen in oude ijskernen en leer over de overlevingsstrategieën van zowel de mens als de megafauna.</p>
+        <p class="more-text">Laat u verrassen door de veerkracht van het leven en de onvoorstelbare kracht van onze planeet. Mis deze unieke kans niet en bezoek ons nu om de echo's van de ijstijd zelf te ervaren.</p>
+    </div>
+</section>
+
+<section class="vaste-achtergrond">
+    <figure>
+    <img src="IMAGE/tentoon3.webp" class="img-balk">
+</figure>
+</section>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Contacteer Ons</h3>
+            <p>Koninklijk Belgisch Instituut<br>Brussel, België<br><br>Email: info@kbin.be<br>Tel: +32 2 123 45 67</p>
+        </div>
+        <div class="footer-column">
+            <h3>Ontdek Meer</h3>
+            <ul>
+                <li><a href="tentoonstelling1.html"><p>Echo's uit de Krijttijdperk</p></a></li>
+                <li><a href="tentoonstelling2.html"><p>Geheimen van de Oceaan</p></a></li>
+                <li><a href="tentoonstelling3.html"><p>De Ijstijd</p></a></li>
+                <li><a href="tentoonstelling4.html"><p>Moderne Dinosaurussen</p></a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Volg Ons</h3>
+            <div class="social-icons">
+                <a href="#"><img src="IMAGE/Facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="IMAGE/Instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="IMAGE/Twitter-icon.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let lastScrollTop = 0;
+        const header = document.getElementById("myHeader");
+        const inhoud = document.querySelector('.inhoud');
+        const nieuws = document.querySelector('.nieuws');
+        const evenementen = document.querySelector('.evenementen');
+        const tentoonstellingen = document.querySelector('.tentoonstellingen');
+        const h1 = document.querySelector('.inhoud h1');
+        
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                header.style.top = "-" + header.offsetHeight + "px";
+            } else {
+                header.style.top = "0";
+            }
+            lastScrollTop = scrollTop;
+
+            const inhoudTop = inhoud.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+            if (inhoudTop < screenHeight) {
+                inhoud.style.transform = 'translateX(0)';
+            } else {
+                inhoud.style.transform = 'translateX(-100%)';
+            }
+
+            const evenementenTop = evenementen.getBoundingClientRect().top;
+            if (evenementenTop < screenHeight) {
+                evenementen.style.transform = 'translateX(0)';
+            } else {
+                evenementen.style.transform = 'translateX(-100%)';
+            }
+
+            const tentoonstellingenTop = tentoonstellingen.getBoundingClientRect().top;
+            if (tentoonstellingenTop < screenHeight) {
+                tentoonstellingen.style.transform = 'translateX(0)';
+            } else {
+                tentoonstellingen.style.transform = 'translateX(-100%)';
+            }
+
+            const nieuwsTop = nieuws.getBoundingClientRect().top;
+            if (nieuwsTop < screenHeight * 1.2) {
+                nieuws.style.transform = 'translateY(0)';
+                nieuws.style.opacity = 1;
+            } else {
+                nieuws.style.transform = 'translateY(50vh)';
+                nieuws.style.opacity = 0;
+            }
+
+            if (isInViewport(h1)) {
+                h1.classList.add('animate-h1');
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+const button = document.querySelector('.read-more-btn');
+const moreTexts = document.querySelectorAll('.more-text');
+
+button.addEventListener('click', function() {
+    moreTexts.forEach(moreText => {
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+            moreText.style.display = "inline";
+        } else {
+            moreText.style.display = "none";
+        }
+    });
+
+    if (button.textContent === "Lees meer") {
+        button.textContent = "Lees minder";
+    } else {
+        button.textContent = "Lees meer";
+    }
+});
+});
+</script>
+</body>
+</html>
