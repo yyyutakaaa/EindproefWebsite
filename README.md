@@ -61,16 +61,16 @@ NatuurhistorischMuseum/
 │   ├── styles.css
 ├── images/
 │   ├── logo.png
-│   ├── exhibition1.jpg
+│   ├── ├── tentoonstelling1.jpg
 │   ├── ...
-├── js/
-│   ├── scripts.js
 ├── homepage.html
 ├── about.html
-├── exhibitions.html
+├── tentoonstellingen.html
+├── tentoonstelling1.html
+├── tentoonstelling2.html
+├── tentoonstelling3.html
+├── tentoonstelling4.html
 ├── contact.html
-├── README.md
-└── LICENSE
 ```
 
 ## Contact
@@ -82,4 +82,3 @@ For any inquiries or feedback, please contact:
 - **GitHub**: [yyyutakaaa](https://github.com/yyyutakaaa)
 
 Thank you for visiting my final project website for the Graphic Media course!
-```
